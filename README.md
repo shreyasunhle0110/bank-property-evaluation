@@ -11,7 +11,6 @@ The Property Evaluation System is a web application
 - MySQL
 - Elasticsearch 8.9.1
 - Visual Studio Code
-- Eclipse IDE
 - Camunda Modeler
 
 ## Installation
@@ -24,7 +23,6 @@ Before installing the Property Evaluation System, ensure you have the following 
 - Elasticsearch 8.9.1
 - MySQL
 - Visual Studio Code
-- Eclipse IDE
 - Camunda Modeler
 
 [Instructions on how to install each of these prerequisites can be found on their respective websites.]
@@ -44,12 +42,11 @@ Once you have installed the prerequisites, follow these steps to install the Pro
      - `elasticsearch.bat` for Elasticsearch.
 
 3. **Deploy Workflow:**
-   - Design the workflow in Camunda Modeler.
    - Deploy the workflow using the Modeler to the Camunda engine.
    - The workflow is located in the resources folder of the gateway application.
 
 4. **Start Microservices:**
-   - Load all 5 microservices (Authentication, Gateway, Property Management, Comment Management, File Upload Service) into Eclipse.
+   - Load all 5 microservices (Authentication, Gateway, Property Management, Comment Management, File Upload Service).
    - Download Maven packages for the applications.
 
 5. **Start Angular App:**
@@ -77,7 +74,7 @@ Before running the demo of the Property Evaluation System, follow these steps:
 
 3. **Set Up the Angular App:**
    - Ensure the Angular app is running on `localhost:4200`.
-   - Implement the login page with username and password fields.
+   - Implement the login page with username and password fields.  // username userA 
    - Implement the property evaluation form.
 
 4. **Set Up the Backend:**
@@ -121,7 +118,8 @@ Before running the demo of the Property Evaluation System, follow these steps:
 - [Authentication Service](https://github.com/shreyasunhle0110/Authentication)
 
 ## Reference Images
-Login Page :![image](https://github.com/shreyasunhle0110/bank-property-evaluation/assets/30310896/42ee8278-bc79-42d9-9680-33953e11fc3c)
+Login Page :![image](https://github.com/shreyasunhle0110/bank-property-evaluation/assets/30310896/572f982d-80e9-4f49-9ae0-ecb2a189f2c6)
+
 Form Page : ![image](https://github.com/shreyasunhle0110/bank-property-evaluation/assets/30310896/f8e37e4a-b2cd-458f-90f8-d63692c0020f)
 Grid Page : ![image](https://github.com/shreyasunhle0110/bank-property-evaluation/assets/30310896/a78e24a2-dd2c-4b28-b778-624dc82653f4)
 Operate page : ![image](https://github.com/shreyasunhle0110/bank-property-evaluation/assets/30310896/1299ebcc-bbba-46cc-8da6-287bb70f4fcf)
