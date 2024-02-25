@@ -1,0 +1,7 @@
+<div class="flex justify-center items-center h-screen">
+    <div class="isolate bg-white ">
+        <h1 class="text-center text-2xl font-bold mb-4">PVS Valuation Requests</h1>
+        <ag-grid-angular style="width: 1000px; height: 500px; column-count: auto;" class="ag-theme-alpine"
+            [rowData]="rowData" [columnDefs]="columnDefs" (gridReady)="onGridReady($event)"></ag-grid-angular>
+    </div>
+</div>

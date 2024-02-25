@@ -1,0 +1,143 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="bg-white px-6 py-8 sm:py-10 lg:px-8 rounded-lg shadow-md max-w-7xl w-full">
+        <form [formGroup]="propertyDetails">
+            <div class="mb-8">
+                <div class="border-b-2 border-indigo-600 pb-2">
+                    <p class="text-lg font-semibold text-gray-900">Initiators Details</p>
+                </div>
+                <div class="grid grid-cols-3 gap-4 mt-4">
+                    <div class="col-span-1">
+                        <label for="initiator-name"
+                            class="block text-sm font-semibold leading-6 text-gray-900">Initiators
+                            Name</label>
+                        <input type="text" name="initiator-name" id="initiator-name" autocomplete="given-name"
+                            value="John Doe" readonly formControlName="initiatorName"
+                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    </div>
+                    <div class="col-span-1">
+                        <label for="initiator-business-unit"
+                            class="block text-sm font-semibold leading-6 text-gray-900">Initiators
+                            Business Unit</label>
+                        <input type="text" name="initiator-business-unit" id="initiatorBusinessUnit"
+                            autocomplete="given-name" value="Business Unit XYZ" readonly
+                            formControlName="initiatorBusinessUnit"
+                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    </div>
+                    <div class="col-span-1">
+                        <label for="initiator-contact-no"
+                            class="block text-sm font-semibold leading-6 text-gray-900">Initiators
+                            Contact Number</label>
+                        <input type="number" name="initiator-contact-no" id="initiator-contact-no" autocomplete="tel"
+                            placeholder="Enter contact number" formControlName="initiatorContactNo"
+                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    </div>
+                </div>
+            </div>
+            <div class="mb-8">
+                <div class="border-b-2 border-indigo-600 pb-2">
+                    <p class="text-lg font-semibold text-gray-900">Facility Details</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mt-4">
+                    <div class="col-span-1">
+                        <label for="type-of-facility" class="block text-sm font-semibold leading-6 text-gray-900">Type
+                            of
+                            Facility</label>
+                        <select name="type-of-facility" id="type-of-facility" formControlName="typeOfFacility"
+                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <option value="revolving">Revolving</option>
+                            <option value="non-revolving">Non-revolving</option>
+                        </select>
+                    </div>
+                    <div class="col-span-1">
+                        <label for="category"
+                            class="block text-sm font-semibold leading-6 text-gray-900">Category</label>
+                        <select name="category" id="category" formControlName="category"
+                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <option value="25000">25000 - Apartment</option>
+                            <option value="25010">25010 - PBWM Housing</option>
+                        </select>
+                    </div>
+                    <div class="col-span-1">
+                        <label for="purpose" class="block text-sm font-semibold leading-6 text-gray-900">Purpose of
+                            Property
+                            Valuation</label>
+                        <select name="purpose" id="purpose" formControlName="purpose"
+                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <option value="1">Reparation</option>
+                            <option value="2">Inheritance</option>
+                            <option value="3">Construction</option>
+                        </select>
+                    </div>
+                    <div class="col-span-1">
+                        <label for="term" class="block text-sm font-semibold leading-6 text-gray-900">Term in
+                            months</label>
+                        <input type="number" name="term" id="term" formControlName="term"
+                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    </div>
+                    <div class="col-span-1">
+                        <label for="amount" class="block text-sm font-semibold leading-6 text-gray-900">Amount</label>
+                        <div class="flex items-center">
+                            <select name="ccy" id="ccy" formControlName="ccy"
+                                class="w-24 ml-2 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                <option value="MUR">MUR</option>
+                                <option value="EUR">EUR</option>
+                                <option value="USD">USD</option>
+                                <option value="GBP">GBP</option>
+                                <option value="ZAR">ZAR</option>
+                            </select>
+                            <input type="number" name="amount" id="amount" formControlName="amount"
+                                class="flex-1 min-w-0 w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                    </div>
+                    <div class="col-span-1 flex items-end"> <!-- Add flex items-end here -->
+                        <div class="flex items-center"> <!-- Add this div -->
+                            <input type="checkbox" id="housing-loan" name="housing-loan" formControlName="housingLoan"
+                                class="h-9 w-9 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" style="margin-top: 6px;">
+                            <!-- Increase height and width -->
+                            <label for="housing-loan" class="ml-2 block text-sm font-semibold leading-6 text-gray-900">Housing
+                                Loan</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-8">
+                <div class="border-b-2 border-indigo-600 pb-2">
+                    <p class="text-lg font-semibold text-gray-900">Property Valuation</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mt-4">
+                    <div class="col-span-1">
+                        <label for="fos-reference" class="block text-sm font-semibold leading-6 text-gray-900">FOS
+                            Reference
+                            (YYYY/MM/XXXX)</label>
+                        <input type="text" name="fos-reference" id="fosReference" autocomplete="off"
+                            placeholder="YYYY/MM/XXXX" formControlName="fosReference"
+                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    </div>
+                    <div class="col-span-1">
+                        <label for="type-of-evaluation" class="block text-sm font-semibold leading-6 text-gray-900">Type
+                            of
+                            Evaluation</label>
+                        <select name="type-of-evaluation" id="type-of-evaluation" formControlName="typeOfEvaluation"
+                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <option value="new">New</option>
+                            <option value="existing">Existing</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-8">
+                <app-borrower-form></app-borrower-form>
+            </div>
+            <div class="mb-8">
+                <app-comments></app-comments>
+            </div>
+            <div class="mb-8">
+                <app-upload-section></app-upload-section>
+            </div>
+            <div class="mt-8">
+                <button type="submit" (click)="submitForm()"
+                    class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

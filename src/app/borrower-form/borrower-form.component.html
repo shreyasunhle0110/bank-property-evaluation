@@ -1,0 +1,148 @@
+<div class="mt-10">
+    <form *ngIf="borrowerForm" [formGroup]="borrowerForm" (ngSubmit)="onSubmit()"
+        class="max-w-4xl mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" novalidate>
+        <h2 class="text-lg font-bold mb-4">Main Borrower</h2>
+        <!-- Main Borrower section -->
+        <div formGroupName="mainBorrower" class="mb-6">
+            <!-- Customer Number and Contact Number -->
+            <div class="grid grid-cols-3 gap-4">
+                <!-- First Column - Customer Number and Contact Number -->
+                <div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="mainCustomerNumber">Customer
+                            Number</label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="mainCustomerNumber" formControlName="customerNumber" type="text"
+                            placeholder="Customer Number" required>
+                        <div *ngIf="borrowerForm.get('mainBorrower.customerNumber')?.hasError('required') && borrowerForm.get('mainBorrower.customerNumber')?.touched"
+                            class="text-red-500 text-xs italic">Customer Number is required</div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="mainContactNumber">Contact
+                            Number</label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="mainContactNumber" formControlName="contactNumber" type="number"
+                            placeholder="Contact Number" required>
+                        <div *ngIf="borrowerForm.get('mainBorrower.contactNumber')?.hasError('required') && borrowerForm.get('mainBorrower.contactNumber')?.touched"
+                            class="text-red-500 text-xs italic">Contact Number is required</div>
+                    </div>
+                </div>
+                <!-- Second Column - Customer Name and Email -->
+                <div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="mainCustomerName">Customer
+                            Name</label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="mainCustomerName" formControlName="customerName" type="text" placeholder="Customer Name"
+                            required>
+                        <div *ngIf="borrowerForm.get('mainBorrower.customerName')?.hasError('required') && borrowerForm.get('mainBorrower.customerName')?.touched"
+                            class="text-red-500 text-xs italic">Customer Name is required</div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="mainEmail">Email</label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="mainEmail" formControlName="email" type="email" placeholder="Email" required>
+                        <div *ngIf="borrowerForm.get('mainBorrower.email')?.hasError('required') && borrowerForm.get('mainBorrower.email')?.touched"
+                            class="text-red-500 text-xs italic">Email is required</div>
+                        <div *ngIf="borrowerForm.get('mainBorrower.email')?.hasError('email') && borrowerForm.get('mainBorrower.email')?.touched"
+                            class="text-red-500 text-xs italic">Invalid email format</div>
+                    </div>
+                </div>
+                <!-- Third Column - Address -->
+                <div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="mainAddress">Address</label>
+                        <textarea
+                            class="resize-y shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="mainAddress" formControlName="address" placeholder="Address" required></textarea>
+                        <div *ngIf="borrowerForm.get('mainBorrower.address')?.hasError('required') && borrowerForm.get('mainBorrower.address')?.touched"
+                            class="text-red-500 text-xs italic">Address is required</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Joint Borrowers section -->
+        <div formArrayName="jointBorrowers">
+            <div *ngFor="let borrower of jointBorrowers.controls; let i = index" [formGroupName]="i" class="mb-6 card">
+                <div class="remove-icon" (click)="removeJointBorrower(i)">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        class="h-4 w-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </div>
+                <h2 class="text-lg font-bold mb-2">Joint Borrower {{ i + 1 }}</h2>
+                <div class="grid grid-cols-3 gap-4">
+                    <div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2"
+                                for="jointCustomerNumber{{i}}">Customer
+                                Number</label>
+                            <input
+                                class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="jointCustomerNumber{{i}}" formControlName="customerNumber" type="text"
+                                placeholder="Customer Number" required>
+                            <div *ngIf="borrower.get('customerNumber')?.hasError('required') && borrower.get('customerNumber')?.touched"
+                                class="text-red-500 text-xs italic">Customer Number is required</div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2"
+                                for="jointContactNumber{{i}}">Contact
+                                Number</label>
+                            <input
+                                class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="jointContactNumber{{i}}" formControlName="contactNumber" type="text"
+                                placeholder="Contact Number" required>
+                            <div *ngIf="borrower.get('contactNumber')?.hasError('required') && borrower.get('contactNumber')?.touched"
+                                class="text-red-500 text-xs italic">Contact Number is required</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2"
+                                for="jointCustomerName{{i}}">Customer
+                                Name</label>
+                            <input
+                                class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="jointCustomerName{{i}}" formControlName="customerName" type="text"
+                                placeholder="Customer Name" required>
+                            <div *ngIf="borrower.get('customerName')?.hasError('required') && borrower.get('customerName')?.touched"
+                                class="text-red-500 text-xs italic">Customer Name is required</div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2"
+                                for="jointEmail{{i}}">Email</label>
+                            <input
+                                class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="jointEmail{{i}}" formControlName="email" type="email" placeholder="Email" required>
+                            <div *ngIf="borrower.get('email')?.hasError('required') && borrower.get('email')?.touched"
+                                class="text-red-500 text-xs italic">Email is required</div>
+                            <div *ngIf="borrower.get('email')?.hasError('email') && borrower.get('email')?.touched"
+                                class="text-red-500 text-xs italic">Invalid email format</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="mainAddress">Address</label>
+                            <textarea
+                                class="resize-y shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="mainAddress" formControlName="address" placeholder="Address" required></textarea>
+                            <div *ngIf="borrowerForm.get('mainBorrower.address')?.hasError('required') && borrowerForm.get('mainBorrower.address')?.touched"
+                                class="text-red-500 text-xs italic">Address is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" (click)="addJointBorrower()"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            Add Joint Borrower
+        </button>
+    </form>
+</div>
